@@ -1,5 +1,9 @@
 ﻿namespace NpcSquads;
 
+/// <summary>
+/// A <see cref="NpcSquads.Squad"/> slot to assign roles
+/// to <see cref="Member"/>s based on their suitability.
+/// </summary>
 public class Slot
 {
 

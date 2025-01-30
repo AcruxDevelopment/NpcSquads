@@ -1,5 +1,9 @@
 ﻿namespace NpcSquads;
 
+/// <summary>
+/// Represents an entity that can be
+/// a member of a <see cref="NpcSquads.Squad"/>.
+/// </summary>
 public abstract class Member
 {
 	/// <summary>

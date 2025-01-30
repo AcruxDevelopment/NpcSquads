@@ -1,14 +1,29 @@
 ﻿namespace NpcSquads;
 
+/// <summary>
+/// Organizes a collection of <see cref="Member"/>s 
+/// strategically based on <see cref="Slot"/>s.
+/// </summary>
 public class Squad
 {
 	private List<Member> members = new();
 	private List<Slot> slots = new();
 
+	/// <summary>
+	/// The entities that are part of this squad.
+	/// </summary>
 	public IReadOnlyList<Member> Members
 		=> members.AsReadOnly();
+
+	/// <summary>
+	/// The <see cref="Slot"/>s of this squad.
+	/// </summary>
 	public IReadOnlyList<Slot> Slots
 		=> slots.AsReadOnly();
+
+	/// <summary>
+	/// Whether more <see cref="Member"/>s can be added to this squad.
+	/// </summary>
 	public bool CanAddMoreMembers
 		=> members.Count < slots.Count;
 
@@ -58,6 +73,10 @@ public class Squad
 	#endregion
 
 	#region Slot Management
+	/// <summary>
+	/// Automatically assings the <see cref="Members"/> into the <see cref="Slots"/>
+	/// based on each <see cref="Member"/> suitability for that <see cref="Slot"/>'s role.
+	/// </summary>
 	public void ReassignSlots()
 	{
 		ReassignSlots(slots.Count, members.ToHashSet());
@@ -152,6 +171,16 @@ public class Squad
 		return str;
 	}
 
+	/// <summary>
+	/// Creates a squad specifying the amount of slots and their roles
+	/// in the form of an <see cref="Enum"/> array.
+	/// <para>
+	/// An <see cref="ArgumentException"/> will be thrown
+	/// if the slot roles are not of the same <see cref="Enum"/> type.
+	/// </para>
+	/// </summary>
+	/// <param name="slotRoles">The slot roles for this squad.</param>
+	/// <exception cref="ArgumentException"></exception>
 	public Squad(Enum[] slotRoles)
 	{
 		// Check types from the slotRoles argument
