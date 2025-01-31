@@ -1,5 +1,8 @@
-﻿namespace Testing;
+﻿using NpcSquads;
 
+namespace Testing;
+
+[SquadSlotRoles]
 public enum SoldierSlotRole
 {
 	FRONTLINE	= 0,

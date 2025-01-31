@@ -187,6 +187,9 @@ public class Squad
 		if(slotRoles.Length != 0)
 		{
 			Type expectedSlotRolesType = slotRoles[0].GetType();
+			if (!SquadSlotRolesAttribute.HasAttribute(expectedSlotRolesType))
+				throw new ArgumentException("The enum type doesnt contain the SquadSlotRolesAttribute");
+
 			bool areAllSlotRolesTypeTheSame = slotRoles.All(x => x.GetType() == expectedSlotRolesType);
 			if (!areAllSlotRolesTypeTheSame)
 				throw new ArgumentException("All the given values should be of the same enum type.", nameof(slotRoles));
