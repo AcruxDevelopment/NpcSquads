@@ -10,9 +10,9 @@ namespace NpcSquads
 	[AttributeUsage(AttributeTargets.Enum)]
 	public sealed class SquadSlotRolesAttribute : Attribute
 	{
-		public static bool HasAttribute(Type? type)
+		public static bool HasAttribute(Type type)
 		{
-			return type.GetCustomAttribute(typeof(SquadSlotRolesAttribute));
+			return type.GetCustomAttribute(typeof(SquadSlotRolesAttribute)) != null;
 		}
 	}
 }
