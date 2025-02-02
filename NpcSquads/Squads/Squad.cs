@@ -135,7 +135,7 @@ public class Squad
 
         bool AreAllSlotsOfRoleEmpty(Enum slotRole, IEnumerable<Slot> slots)
         {
-            return slots.Where(x => x.Role == slotRole).All(x => x.Occupant == null);
+            return slots.Where(x => x.Role.Equals(slotRole)).All(x => x.Occupant == null);
         }
 
         Member? GetMemeberFor(Enum slotRole, HashSet<Member> members)
