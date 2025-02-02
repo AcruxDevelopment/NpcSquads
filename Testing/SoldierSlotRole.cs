@@ -1,4 +1,4 @@
-﻿using NpcSquads;
+﻿using NpcSquads.Squads;
 
 namespace Testing;
 

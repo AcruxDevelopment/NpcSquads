@@ -1,4 +1,4 @@
-﻿using NpcSquads;
+﻿using NpcSquads.Squads;
 using static Testing.SoldierSlotRole;
 namespace Testing;
 
